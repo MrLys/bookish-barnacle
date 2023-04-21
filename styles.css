@@ -221,6 +221,23 @@ input:checked + .slider:before {
 #settings-dialog-close:hover {
   background-color: #005100;
 }
+.history-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
 
-.message-name {
+.chat-item {
+  margin-bottom: 10px;
+}
+
+.chat-item button {
+  margin-left: 10px;
 }

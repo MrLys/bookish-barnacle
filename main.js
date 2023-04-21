@@ -1,6 +1,5 @@
 const path = require('path')
 const { app, BrowserWindow, globalShortcut } = require('electron')
-
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,

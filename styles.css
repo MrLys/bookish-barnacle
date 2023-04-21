@@ -1,0 +1,226 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+}
+
+.chat-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-container {
+  flex-grow: 1;
+  overflow: auto;
+  padding: 10px;
+}
+
+.input-container {
+  display: flex;
+  margin: 10px;
+}
+
+textarea[name="message-input"] {
+  flex-grow: 1;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 8px 12px;
+  border: none;
+  background-color:#007200;
+  border-radius: 5px;
+  color: white;
+}
+
+button:hover {
+  background-color: #005100;
+}
+
+/* Updated styles */
+.message {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.user.message-name { /* Updated selector */
+  color: #007200;
+  font-size: 0.8em; /* Make the text smaller */
+  margin-right: 5px;
+}
+
+.user.message-text { /* Updated selector */
+  color: #007200;
+  font-weight: normal;
+  padding: 5px;
+  background-color: #e5ffe5; /* adds a light green background */
+  border-radius: 5px; /* adds rounded corners */
+}
+
+.assistant.message-name { /* Updated selector */
+  color: #005100;
+  font-size: 0.8em; /* Make the text smaller */
+  margin-right: 5px;
+}
+
+.assistant.message-text { /* Updated selector */
+  color: #005100;
+  font-weight: normal;
+  padding: 5px;
+  background-color: #e5f1e5; /* adds a lighter green background */
+  border-radius: 5px; /* adds rounded corners */
+}
+#settings-container {
+  position: relative;
+  display: inline-block;
+}
+.settings-dialog {
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.dark-theme .settings-dialog {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #888;
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Transparent black */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 5px;
+  text-align: center;
+  position: relative; /* Add relative positioning */
+}
+
+#settings-dialog-close:hover,
+#settings-dialog-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Theme icon */
+#theme-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  transition: 0.4s;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+}
+/* styles.css */
+/* ... */
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px; /* Add some space between the toggle and the OK button */
+}
+
+.modal-content {
+  /* ... */
+  text-align: center;
+  position: relative; /* Add relative positioning */
+}
+
+#settings-dialog-close {
+  /* Remove the previous styles and add new styles for the OK button */
+  background-color: #007200;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+#settings-dialog-close:hover {
+  background-color: #005100;
+}
+
+.message-name {
+}

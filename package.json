@@ -1,0 +1,13 @@
+{
+  "name": "electron-gpt",
+  "version": "1.0.0",
+  "description": "a small interface for gpt",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^24.1.2"
+  }
+}

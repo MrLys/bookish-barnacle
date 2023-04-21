@@ -1,0 +1,40 @@
+/* dark-theme.css */
+body {
+  background-color: #1e1e1e;
+}
+
+.chat-container {
+  background-color: #2c2c2c;
+}
+
+textarea[name="message-input"] {
+  background-color: #555;
+  color: #ffffff;
+  border: 1px solid #777;
+}
+
+button {
+  background-color: #228822;
+}
+
+button:hover {
+  background-color: #226422;
+}
+
+.user.message-name {
+  color: #40c040;
+}
+
+.user.message-text {
+  color: #40c040;
+  background-color: #508050;
+}
+
+.assistant.message-name {
+  color: #30a030;
+}
+
+.assistant.message-text {
+  color: #30a030;
+  background-color: #507050;
+}

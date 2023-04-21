@@ -1,0 +1,43 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chat Window</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+
+    </head>
+    <body>
+        <div class="chat-container">
+            <div class="messages-container" id="messages-container">
+                <!-- Chat messages will be appended here -->
+            </div>
+            <div class="input-container">
+                <textarea name="message-input" id="input-message" rows="5" placeholder="Type your message..."></textarea>
+                <button id="send-message">Send</button>
+                <button id="clear-messages">Clear</button>
+                <button id="settings-button">Settings</button>
+            </div>
+
+            <!-- Add the settings dialog modal -->
+            <div id="settings-dialog" class="modal" hidden>
+                <div class="modal-content">
+                    <div class="theme-toggle">
+                        <span id="theme-icon"></span>
+                        <label class="switch">
+                            <input type="checkbox" id="darkThemeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <button id="settings-dialog-close">OK</button> <!-- Move the button here and change the text -->
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked@3.0.8/marked.min.js"></script> <!-- Include marked library -->
+        <script src="config.js"></script>
+        <script src="renderer.js"></script>
+    </body>
+</html>

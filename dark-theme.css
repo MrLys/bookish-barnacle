@@ -1,40 +1,95 @@
 /* dark-theme.css */
 body {
-  background-color: #1e1e1e;
+  background-color: #191724;
 }
 
 .chat-container {
-  background-color: #2c2c2c;
+  background-color: #1f1d2e;
 }
 
 textarea[name="message-input"] {
-  background-color: #555;
-  color: #ffffff;
-  border: 1px solid #777;
+  background-color: #26233a;
+  color: #e0def4;
+  border: 1px solid #6e6a86;
 }
 
 button {
-  background-color: #228822;
+  background-color: #eb6f92;
+  color: #e0def4;
 }
 
 button:hover {
-  background-color: #226422;
+  background-color: #c1627a;
 }
 
 .user.message-name {
-  color: #40c040;
+  color: #f6c177;
 }
 
 .user.message-text {
-  color: #40c040;
-  background-color: #508050;
+  color: #f6c177;
+  background-color: #3a354a;
+  border: 1px solid #908caa;
 }
 
 .assistant.message-name {
-  color: #30a030;
+  color: #31748f;
 }
 
 .assistant.message-text {
-  color: #30a030;
-  background-color: #507050;
+  color: #31748f;
+  background-color: #3a354a;
+  border: 1px solid #9ccfd8;
+}
+
+.history-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #1f1d2e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.chat-item {
+  margin-bottom: 10px;
+  color: #908caa;
+}
+
+.dark-theme pre {
+  background-color: #2c2935;
+  color: #e0def4;
+}
+
+.dark-theme code {
+  color: #e0def4;
+}
+
+.dark-theme pre::selection {
+  background-color: rgba(143, 232, 202, 0.99); /* Add a custom background color for text selection */
+  color: #2c2935; /* Add a custom color for text selection */
+}
+
+.dark-theme blockquote {
+  background-color: #2c2935;
+  border-left: 4px solid #6e6a86;
+  color: #e0def4;
+}
+
+.dark-theme blockquote::before {
+  content: "“"; /* Add a custom quote before every blockquote */
+  color: #908caa; /* Add a custom color for custom quotes */
+}
+
+.dark-theme li::before {
+  content: "• "; /* Add a custom bullet before every li */
+  color: #908caa; /* Add a custom color for custom bullets */
+}
+
+.dark-theme li {
+  color: #e0def4;
 }

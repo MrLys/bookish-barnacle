@@ -29,11 +29,11 @@ function updateHistoryDialog(historyDialog) {
 
     }
 }
-
 function appendMessage(message, isUser = true) {
     const formattedMessage = marked(message);
     const messageElement = document.createElement("div");
     const messageNameElement = document.createElement("span");
+    const copyIconElement = document.createElement("span");
 
     messageNameElement.className = `${isUser ? "user" : "assistant"} message-name`;
     messageNameElement.innerText = isUser ? "You: " : "Assistant: ";
@@ -42,6 +42,30 @@ function appendMessage(message, isUser = true) {
 
     role = isUser ? "user" : "assistant";
     messageElement.className = `${role} message-text`;
+
+    // Add copy icon
+    copyIconElement.className = "far fa-copy copy-icon"; // Font Awesome copy icon
+    copyIconElement.style.display = "none"; // Add to hide the icon by default
+    copyIconElement.addEventListener("click", () => {
+        const codeSnippet = messageElement.querySelector("pre code");
+        const codeSnippetText = codeSnippet ? codeSnippet.innerText : "";
+
+        navigator.clipboard.writeText(codeSnippetText).then(
+            () => {
+                console.log("Code snippet copied to clipboard");
+            },
+            (err) => {
+                console.error("Error copying to clipboard", err);
+            }
+        );
+    });
+    messageElement.querySelector("pre")?.classList.add("code-snippet-container");
+    messageElement.querySelector("pre")?.appendChild(copyIconElement); // Attach the icon to the 'pre' element
+
+    // Show the copy icon if there's a code snippet
+    if (messageElement.querySelector("pre code")) {
+        copyIconElement.style.display = "inline";
+    }
 
     messagesContainer.appendChild(messageElement);
     messages.push({ role: role, content: message });
@@ -69,6 +93,8 @@ function appendMessage(message, isUser = true) {
         hljs.highlightBlock(block);
     });
 }
+
+
 
 function showHistory() {
     // If a history dialog already exists, close and remove it

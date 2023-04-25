@@ -241,3 +241,20 @@ input:checked + .slider:before {
 .chat-item button {
   margin-left: 10px;
 }
+.copy-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+    padding: 4px;
+}
+.message-text {
+  position: relative;
+}
+
+.code-snippet-container {
+  position: relative;
+  display: inline-block; /* As each code snippet is wrapped in <pre> tags, they will appear as a block by default */
+}

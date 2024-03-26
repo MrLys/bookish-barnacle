@@ -1,3 +1,5 @@
 node_modules/*
 config.js
 yarn-error.log
+/v2/dist/*
+/v2/node_modules/*

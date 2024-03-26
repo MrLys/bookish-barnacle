@@ -1,0 +1,32 @@
+{
+    "models": {
+        "Anthropic": [
+            {
+                "name": "Claude 3 Opus" ,
+                "description":  "Most powerful model for highly complex tasks",
+                "strengths": "Top-level performance, intelligence, fluency, and understanding",
+                "model": "claude-3-opus-20240229"
+            },
+            {
+                "name": "Claude 3 Sonnet",
+                "description": "Ideal balance of intelligence and speed for enterprise workloads",
+                "strengths": "Maximum utility at a lower price, dependable, balanced for scaled deployments",
+                "model": "claude-3-sonnet-20240229"
+            },
+            {
+                "name": "Claude 3 Haiku",
+                "description": "Fastest and most compact model for near-instant responsiveness",
+                "strengths": "Quick and accurate targeted performance",
+                "model": "claude-3-haiku-20240307"
+            }
+        ],
+        "OpenAI": [
+            {
+                "name": "GPT4",
+                "description": "Fastest and most compact model for near-instant responsiveness",
+                "strengths": "Quick and accurate targeted performance",
+                "model": "gpt-4-1106-preview"
+            }
+        ]
+    }
+}

@@ -6,8 +6,8 @@
         <title>Chat Window</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="ros-pine-moon.css">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script>var exports = {};</script>
     </head>
     <body>
         <div class="chat-container">
@@ -23,7 +23,7 @@
             </div>
 
             <!-- Add the settings dialog modal -->
-            <div id="settings-dialog" class="modal" hidden>
+            <div id="settings-dialog" class="modal" hidden=true>
                 <div class="modal-content">
                     <div class="theme-toggle">
                         <span id="theme-icon"></span>
@@ -35,18 +35,13 @@
                     <button id="settings-dialog-close">OK</button> <!-- Move the button here and change the text -->
                     <!-- Add a role selection dropdown inside settings-dialog -->
                     <div class="role-selection">
-                        <label for="role-dropdown">Choose a role:</label>
-                        <select id="role-dropdown">
-                            <option value="user" selected>User</option>
-                            <option value="system">System</option>
-                        </select>
+                        <label for="model-dropdown">Choose a Model:</label>
+                        <select id="model-dropdown"/>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/marked@3.0.8/marked.min.js"></script> <!-- Include marked library -->
-        <script src="config.js"></script>
-        <script src="renderer.js"></script>
+        <script src="./config.js"></script>
+        <script src="./renderer.js"></script>
     </body>
 </html>

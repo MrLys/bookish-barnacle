@@ -101,8 +101,6 @@ function appendMessage(message, isUser = true) {
     });
 }
 
-
-
 function setTheme(isDark) {
     const bodyElement = document.body;
     if (isDark) {
@@ -200,12 +198,7 @@ messageInput.addEventListener('keyup', (event) => {
 clearMessagesButton.addEventListener('click', () => {
     clearMessages();
 });
-//setTheme(userPrefersDark);
 
-// Listen to toggle event
-//darkThemeToggle.addEventListener('change', (event) => {
-    //    setTheme(event.target.checked);
-    //});
 // Listen to toggle event
 darkThemeToggle.addEventListener('change', (event) => {
     setTheme(event.target.checked);

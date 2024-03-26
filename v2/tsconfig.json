@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "nodenext", // or "commonjs"
+    "target": "es2020", // or a newer version like "es2020"
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+

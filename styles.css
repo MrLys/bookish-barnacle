@@ -258,6 +258,7 @@ input:checked + .slider:before {
   position: relative;
   display: inline-block; /* As each code snippet is wrapped in <pre> tags, they will appear as a block by default */
 }
+
 /* Role selection dropdown styles */
 .role-selection {
   margin-bottom: 15px;
@@ -280,3 +281,4 @@ input:checked + .slider:before {
   flex-direction: column;
   align-items: center;
 }
+

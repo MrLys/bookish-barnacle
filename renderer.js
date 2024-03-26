@@ -101,57 +101,6 @@ function appendMessage(message, isUser = true) {
     });
 }
 
-
-
-function showHistory() {
-    // If a history dialog already exists, close and remove it
-    const existingDialog = document.querySelector('.history-dialog');
-    if (existingDialog) {
-        existingDialog.remove();
-        return;
-    }
-
-    const historyDialog = document.createElement("div");
-    historyDialog.className = "history-dialog";
-    updateHistoryDialog(historyDialog); // Update the call to updateHistoryDialog()
-
-    const keys = Object.keys(localStorage).filter((key) => key.startsWith("auto-chat-"));
-
-    if (keys.length !== 0) {
-        keys.forEach((key) => {
-            const chatName = key.substring(5);
-            const chatItem = document.createElement("div");
-            chatItem.className = "chat-item";
-            chatItem.innerText = chatName;
-
-            const restoreButton = document.createElement("button");
-            restoreButton.innerText = "Restore";
-            restoreButton.addEventListener("click", ((currentKey) => {
-                return () => {
-                    clearMessages();
-                    messages = JSON.parse(localStorage.getItem(currentKey));
-                    messages.forEach((message) => {
-                        appendMessage(message.content, message.role === "user");
-                    });
-                    historyDialog.remove();
-                };
-            })(key));
-            const deleteButton = document.createElement("button");
-            deleteButton.innerText = "Delete";
-            deleteButton.addEventListener("click", () => {
-                localStorage.removeItem(key);
-                chatItem.remove();
-                updateHistoryDialog(historyDialog); // Update the call to updateHistoryDialog()
-            });
-
-            chatItem.appendChild(restoreButton);
-            chatItem.appendChild(deleteButton);
-            historyDialog.appendChild(chatItem);
-        });
-    }
-
-    document.body.appendChild(historyDialog);
-}
 function setTheme(isDark) {
     const bodyElement = document.body;
     if (isDark) {
@@ -187,7 +136,7 @@ async function fetchGPT3Response() {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                "model": "gpt-4",
+                "model": "gpt-4-1106-preview",
                 "messages": messages,
             },
             {
@@ -203,17 +152,38 @@ async function fetchGPT3Response() {
         return 'Error: Unable to get a response from ChatGPT.';
     }
 }
+let currentRole = 'user';  // Default role
 
+function getSelectedRole() {
+    const roleDropdown = document.getElementById('role-dropdown');
+    const selectedRole = roleDropdown.value;
+    return selectedRole;
+}
+
+// Update the sendMessageButton listener with role support
 sendMessageButton.addEventListener('click', async () => {
     const message = messageInput.value.trim();
-
     if (message) {
-        appendMessage(message); // Display user's message
+        const isFirstMessage = messages.length === 0;
+        const selectedRole = isFirstMessage ? getSelectedRole() : 'user'; // Get the role for the first message
+        appendMessage(message, selectedRole === 'user'); // Use a boolean for the 'isUser' parameter
+
+        if (isFirstMessage) {
+            currentRole = selectedRole; // Set the current role to the selected role
+        }
         messageInput.value = '';
 
         const chatgptResponse = await fetchGPT3Response(message); // Fetch response from ChatGPT
         appendMessage(chatgptResponse, false); // Display ChatGPT response
     }
+});
+
+// ... rest of your existing code
+
+// Modify the settings dialog open button to account for currentRole
+settingsButton.addEventListener('click', () => {
+    document.getElementById('role-dropdown').value = currentRole;
+    settingsDialog.removeAttribute('hidden');
 });
 
 messageInput.addEventListener('keyup', (event) => {
@@ -228,12 +198,7 @@ messageInput.addEventListener('keyup', (event) => {
 clearMessagesButton.addEventListener('click', () => {
     clearMessages();
 });
-//setTheme(userPrefersDark);
 
-// Listen to toggle event
-//darkThemeToggle.addEventListener('change', (event) => {
-    //    setTheme(event.target.checked);
-    //});
 // Listen to toggle event
 darkThemeToggle.addEventListener('change', (event) => {
     setTheme(event.target.checked);
@@ -241,6 +206,7 @@ darkThemeToggle.addEventListener('change', (event) => {
 
 // Show settings dialog
 settingsButton.addEventListener('click', () => {
+    document.getElementById('role-dropdown').value = currentRole;
     settingsDialog.removeAttribute('hidden');
 });
 
@@ -256,6 +222,3 @@ window.addEventListener('click', (event) => {
     }
 });
 
-showHistoryButton.addEventListener("click", () => {
-    showHistory();
-});

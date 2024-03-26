@@ -258,7 +258,6 @@ input:checked + .slider:before {
   position: relative;
   display: inline-block; /* As each code snippet is wrapped in <pre> tags, they will appear as a block by default */
 }
-
 /* Role selection dropdown styles */
 .role-selection {
   margin-bottom: 15px;
@@ -280,5 +279,42 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+#model-dropdown {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+#model-dropdown option {
+  padding: 8px 12px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.role-selection {
+  margin-bottom: 24px;
+}
+
+#settings-dialog-close {
+  margin-top: 16px;
+}
+
+#model-dropdown {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+#model-dropdown:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }
 
